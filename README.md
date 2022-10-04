@@ -1,2 +1,5 @@
 # ServiceNow-Personal-Utils
-Chrome Extension to make my life a bit easier
+Chrome Extension for ServiceNow to make my life a bit easier
+
+Features:
+Documentation template generation
