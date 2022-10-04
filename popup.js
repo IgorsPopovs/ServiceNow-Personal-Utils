@@ -29,7 +29,7 @@ const setDocumentationTemplate = info => {
   document.getElementById('exampleDocTemplate').innerHTML = template;
 };
 
-
+/*
 window.onload = function() {
   chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
     let tabId = tabs[0].id;
@@ -46,6 +46,31 @@ window.onload = function() {
       // use `url` here inside the callback because it's asynchronous!
     }
 });
+*/
+document.addEventListener('DOMContentLoaded', function () {
+  showSection('info');
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      let tabId = tabs[0].id;
+      var cookieStoreId = tabs[0].cookieStoreId || '';
+      let urlFull = tabs[0].url;
+      
+      if (tabs[0].url.includes('sys_update_set.do')) {
+        showSection('doc');
+  
+        chrome.tabs.sendMessage(
+          tabId,
+          {type: "NEW", videoId: "id"},
+          setDocumentationTemplate 
+        );
+        // use `url` here inside the callback because it's asynchronous!
+      }
 
-}
+  });
+
+  if (typeof InstallTrigger !== 'undefined') $('input[type="color"]').attr('type','text') //bug in FireFox to use html5 color tag in popup
+
+});
+
+
+
 

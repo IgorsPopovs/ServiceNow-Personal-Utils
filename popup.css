@@ -1,6 +1,35 @@
-.container {
-  color: #314d3e;
+body {
+  width: 600px;
+  background-color: rgb(179, 179, 179);
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.item {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: rgb(220, 220, 220);
+}
+
+textarea {
+  width: 100%;
+  height: 60px;
+  padding: 3px 5px;
+  background-color: rgb(220, 220, 220);
+  font-size: 12px;
+  resize: vertical;
+}
+
+
+
+
+
+
 
 .title {
   font-size: 14px;

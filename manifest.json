@@ -1,7 +1,7 @@
 {
-  "name": "My YT Bookmarks",
+  "name": "ServiceNow Personal Utils",
   "version": "0.1.0",
-  "description": "Saving timestamps in YT videos",
+  "description": "ServiceNow helper",
   "permissions": [
     "activeTab",
     "declarativeContent",
