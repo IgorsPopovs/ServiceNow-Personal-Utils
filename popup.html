@@ -3,32 +3,35 @@
 
 
 <div class="container">
-  <div class="section" id="info">
-    <h2>Information</h2>
-    <div class="item">
-      <p>Generate Jira task information from Local Update Set</p>
-    </div>
-  </div>
+  <main>
+    <nav>
+      <ul>
+        <li><a href="#home" id="link1" class="navList">Home</a></li>
+        <li><a href="#docTemplate" id="link2" class="navList">Generate documentation</a></li>
+      </ul>
+    </nav>
 
-  <div class="section" id="doc">
-    <h2>Local Update Set Documentation template:</h2>
-    <h3>Source code for documentation template:</h3>
-    <div class="item">
-      <form>
-        <textarea id="rawDocTemplate" name="copyText" rows="4px">Please refresh the page</textarea>
-      </form>
-    </div>
-    <h3>Formatted documentation template</h3>
-    <div class="item">
-      <div id="exampleDocTemplate"></div>
-    </div>
-  </div>
 
-  <div class="section" id="something">
-    <h2>Another Feature:</h2>
-    <label>Another feature</label>
-    <div></div>
-  </div> 
-    
-  </div>
+    <div class="content">
+
+      <section id="home">
+        <h2>Information:</h2>
+        <p>Sup!</p>
+      </section>
+  
+      <section id="docTemplate">
+        <h2>Local Update Set Documentation template:</h2>
+        <h3>Source code for documentation template:</h3>
+        <div class="template-block">
+          <form>
+            <textarea id="rawDocTemplate" name="copyText" rows="4px">Please refresh the page</textarea>
+          </form>
+        </div>
+        <h3>Formatted documentation template</h3>
+        <div class="template-block">
+          <div id="exampleDocTemplate"></div>
+        </div>
+      </section>
+
+  </main>
 </div>

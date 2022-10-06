@@ -1,14 +1,19 @@
-// Update the relevant fields with the new data.
-const showSection = sectionID => {
-  const sections = document.getElementsByClassName('section');
-  for (let i = 0; i < sections.length; i++) {
-    if (sections[i].id != sectionID) {
-      sections[i].style.setProperty('display', 'none');
-    } else {
-      sections[i].style.setProperty('display', 'block');
-    }
-  }
+const setActiveNavList = navListId => {
+  var links = document.querySelectorAll("a.navlist");
+  Array.prototype.map.call(links, function(e) {
+      e.className = "navlist";
+      if (e.id == navListId)
+          e.className = "activePage navlist";
+  })
 }
+
+document.querySelectorAll('a.navlist').forEach(item => {
+  item.addEventListener('click', event => {
+    var target = event.target;
+    setActiveNavList(target.id);
+  })
+})
+
 
 const setDocumentationTemplate = info => {
   console.log(info);
@@ -29,33 +34,22 @@ const setDocumentationTemplate = info => {
   document.getElementById('exampleDocTemplate').innerHTML = template;
 };
 
-/*
-window.onload = function() {
-  chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
-    let tabId = tabs[0].id;
-    showSection('info');
 
-    if (tabs[0].url.includes('sys_update_set.do')) {
-      showSection('doc');
 
-      chrome.tabs.sendMessage(
-        tabId,
-        {type: "NEW", videoId: "id"},
-        setDocumentationTemplate 
-      );
-      // use `url` here inside the callback because it's asynchronous!
-    }
-});
-*/
 document.addEventListener('DOMContentLoaded', function () {
-  showSection('info');
+  if (document.querySelectorAll("section:target").length == 0) {
+    window.location = "#home";
+    setActiveNavList('link1');
+  }
+  
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       let tabId = tabs[0].id;
       var cookieStoreId = tabs[0].cookieStoreId || '';
       let urlFull = tabs[0].url;
       
-      if (tabs[0].url.includes('sys_update_set.do')) {
-        showSection('doc');
+      if (urlFull.includes('sys_update_set.do')) {
+        window.location = "#docTemplate";
+        setActiveNavList('link2');
   
         chrome.tabs.sendMessage(
           tabId,
