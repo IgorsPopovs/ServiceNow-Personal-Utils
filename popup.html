@@ -14,6 +14,10 @@
 
     <div class="content">
 
+      <section id="loading">
+        <h2>Loading...</h2>
+      </section>
+
       <section id="home">
         <h2>Information:</h2>
         <p>Sup!</p>
@@ -21,6 +25,13 @@
   
       <section id="docTemplate">
         <h2>Local Update Set Documentation template:</h2>
+        <div style="display: flex; align-items: flex-end;">
+          <textarea id="storyNumber"></textarea>
+          <button id="getUpdateSet">Generate</button>
+          <span id="waitingDocGen" class="waiting">
+            <div class="spin">?</div>
+          </span>
+        </div>
         <h3>Source code for documentation template:</h3>
         <div class="template-block">
           <form>
@@ -32,6 +43,7 @@
           <div id="exampleDocTemplate"></div>
         </div>
       </section>
+      
 
   </main>
 </div>
